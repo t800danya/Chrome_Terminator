@@ -144,7 +144,7 @@ func findAndKillProcess(path string, info os.FileInfo, err error) error {
 
 
 
-//  Функция запуска Chrome
+//  Функция запуска Chrome с Костылями для Убийства
 
 
 func RunChrome() {
@@ -156,7 +156,7 @@ run:
 		print(err.Error())
 		os.Exit(1)
 	}
-tuco:
+kill:
         if mem >= FreeMem() {
         fmt.Println("Памяти не хватает")
 	fmt.Println("Убиваем Chrome ",syscall.Kill(cmd.Process.Pid, syscall.SIGKILL))
@@ -167,7 +167,7 @@ tuco:
         time.Sleep(time.Millisecond * milisec)
         fmt.Println("Памяти хватает")
         fmt.Println("Не Убиваем Chrome ")
-        goto tuco
+        goto kill
         }
 
    }
