@@ -157,7 +157,7 @@ run:
 		os.Exit(1)
 	}
 kill:
-        if mem >= FreeMem() {
+        if mem > FreeMem() {
         fmt.Println("Памяти не хватает")
 	fmt.Println("Убиваем Chrome ",syscall.Kill(cmd.Process.Pid, syscall.SIGKILL))
         time.Sleep(time.Millisecond * milisec)
